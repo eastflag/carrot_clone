@@ -1,16 +1,5 @@
-# spotify_clone
+# carrot_clone
 
-spotify clone project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://www.youtube.com/watch?v=Lo6bv1BoAOo&list=PLgRxBCVPaZ_3R0h7mCkLJ1RKh7XRvoZdF&index=3
