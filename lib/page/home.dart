@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Map<String, String>> datas = [];
+  var _bottomSelectedIndex = 0;
 
   final oCcy = NumberFormat("#,###", "ko_KR");
   String calcStringToWon(String priceString) {
@@ -113,7 +114,32 @@ class _HomeState extends State<Home> {
               )),
         ],
       ),
-      body: _bodyWidget(),
+      body: IndexedStack(
+        index: _bottomSelectedIndex,
+        children: [
+          _bodyWidget(),
+          Container(color: Colors.red),
+          Container(color: Colors.yellow),
+          Container(color: Colors.grey),
+          Container(color: Colors.blue),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            _bottomSelectedIndex = index;
+          });
+        },
+        currentIndex: _bottomSelectedIndex,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: SvgPicture.asset("assets/svg/home_${_bottomSelectedIndex == 0 ? "on" : "off"}.svg", width: 22), label: "home"),
+          BottomNavigationBarItem(icon: SvgPicture.asset("assets/svg/notes_${_bottomSelectedIndex == 1 ? "on" : "off"}.svg", width: 22), label: "동네생활"),
+          BottomNavigationBarItem(icon: SvgPicture.asset("assets/svg/location_${_bottomSelectedIndex == 2 ? "on" : "off"}.svg", width: 22), label: "내근처"),
+          BottomNavigationBarItem(icon: SvgPicture.asset("assets/svg/chat_${_bottomSelectedIndex == 3 ? "on" : "off"}.svg", width: 22), label: "채팅"),
+          BottomNavigationBarItem(icon: SvgPicture.asset("assets/svg/user_${_bottomSelectedIndex == 4 ? "on" : "off"}.svg", width: 22), label: "나의당근"),
+        ],
+      ),
     );
   }
 }
