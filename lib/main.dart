@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/page/home.dart';
+import 'package:spotify_clone/screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,6 +49,6 @@ class MyApp extends StatelessWidget {
               // actionsIconTheme: IconThemeData(color: Colors.black),
             ),
             visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: Home());
+        home: HomeScreen());
   }
 }
