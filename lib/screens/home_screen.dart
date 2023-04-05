@@ -11,6 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var _bottomSelectedIndex = 0;
+  String currentLocation = "ara";
+  final Map<String, String> locationTypeToString = {
+    "ara": "아라동",
+    "ora": "오라동",
+    "donam": "도남동"
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +26,26 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             print('clicked');
           },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [Text('아라동'), Icon(Icons.arrow_drop_down)],
+          child: PopupMenuButton(
+            offset: Offset(0, 25),
+            shape: ShapeBorder.lerp(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)), 1),
+            onSelected: (value) {
+              setState(() {
+                currentLocation = value;
+              });
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(value: 'ara', child: Text('아라동')),
+                PopupMenuItem(value: 'donam', child: Text('도남동')),
+                PopupMenuItem(value: 'ora', child: Text('오라동')),
+              ];
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [Text(locationTypeToString[currentLocation]!), Icon(Icons.arrow_drop_down)],
+            ),
           ),
         ),
         actions: [
